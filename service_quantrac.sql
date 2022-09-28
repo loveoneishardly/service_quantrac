@@ -1,6 +1,6 @@
 /*
-SQLyog Community v12.16 (32 bit)
-MySQL - 8.0.16 : Database - servicequantrac
+SQLyog Community
+MySQL - 10.1.37-MariaDB : Database - servicequantrac
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 8.0.16 : Database - servicequantrac
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`servicequantrac` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`servicequantrac` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 
 USE `servicequantrac`;
 
@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `areadata`;
 
 CREATE TABLE `areadata` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `area_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `area_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `area_status` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -39,11 +39,11 @@ DROP TABLE IF EXISTS `dataquantrac`;
 CREATE TABLE `dataquantrac` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `IDTRAM` int(11) NOT NULL,
-  `FKEY` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `FNAME` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `FINDEX` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `FRESULT` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `FUNIT` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FKEY` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `FNAME` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FINDEX` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FRESULT` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FUNIT` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `FDATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `CREATED` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`IDTRAM`,`FKEY`,`ID`),
@@ -60,13 +60,13 @@ DROP TABLE IF EXISTS `datathuyloi`;
 CREATE TABLE `datathuyloi` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `IDTRAM` int(11) DEFAULT NULL,
-  `FKEY` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FKEY` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `FDATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `FUNIT` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Salinity` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Temperature` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Level` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pH` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FUNIT` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Salinity` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Temperature` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pH` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `CREATED` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
   KEY `IDTRAM` (`IDTRAM`)
@@ -83,7 +83,7 @@ DROP TABLE IF EXISTS `logdata`;
 
 CREATE TABLE `logdata` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `FKEY` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FKEY` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `FACTION` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `FTYPE` int(11) DEFAULT NULL COMMENT '1: TNMT, 2: Thủy lợi',
   `FCREATED` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -98,13 +98,13 @@ DROP TABLE IF EXISTS `tramquantrac`;
 
 CREATE TABLE `tramquantrac` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `FCODE` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `TENTRAM` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `FADDRESS` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `DIRECTORY` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FCODE` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `TENTRAM` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FADDRESS` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `DIRECTORY` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `FLOCATION_LAT` double DEFAULT NULL,
   `FLOCATION_LNG` double DEFAULT NULL,
-  `FDESCRIPTION` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `FDESCRIPTION` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `FAREA_ID` int(11) DEFAULT NULL,
   `FTYPE` int(11) DEFAULT NULL COMMENT '1: TNMT, 2: Thủy Lợi',
   `FIDANOTHER` int(11) DEFAULT NULL,
@@ -135,9 +135,9 @@ DROP TABLE IF EXISTS `unitsymbol`;
 
 CREATE TABLE `unitsymbol` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `unit_index` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'tên chỉ số',
-  `unit_name` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'tên tiếng Việt',
-  `unit_symbol` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'đơn vị tính',
+  `unit_index` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'tên chỉ số',
+  `unit_name` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'tên tiếng Việt',
+  `unit_symbol` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'đơn vị tính',
   `unit_upper` float DEFAULT NULL COMMENT 'cận trên',
   `unit_lower` float DEFAULT NULL COMMENT 'cận dưới',
   `unit_comment` int(11) DEFAULT '0' COMMENT '0: bình thường, 1: khí',
@@ -187,23 +187,31 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fbirthday` date DEFAULT NULL,
+  `fGender` int(11) DEFAULT NULL COMMENT '1: Nam, 2: Nữ',
+  `faddress` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `femail` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fmenu` longtext COLLATE utf8mb4_unicode_ci,
+  `fadmin` int(11) DEFAULT '1',
   `fstatus` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`password`,`fstatus`) values 
-(1,'admin','0b7e367fb674d93b0681eeb663987782',1);
+insert  into `user`(`id`,`username`,`password`,`fname`,`fbirthday`,`fGender`,`faddress`,`femail`,`fmenu`,`fadmin`,`fstatus`) values 
+(1,'admin','783d3aebfb3acb32064b8811e7ac7f72','Admin','2022-09-28',1,'Sóc Trăng','admin@gmail.com',NULL,0,1),
+(2,'soctrang','0b7e367fb674d93b0681eeb663987782','Sóc Trăng','2022-09-28',1,'Sóc Trăng','soctrang@gmail.com',NULL,1,1);
 
 /* Function  structure for function  `f_lichsuchuongtrinh` */
 
 /*!50003 DROP FUNCTION IF EXISTS `f_lichsuchuongtrinh` */;
 DELIMITER $$
 
-/*!50003 CREATE FUNCTION `f_lichsuchuongtrinh`(fkey VARCHAR(50),
+/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `f_lichsuchuongtrinh`(fkey VARCHAR(50),
 	faction VARCHAR(255),
 	ftype VARCHAR(10)
 ) RETURNS varchar(100) CHARSET utf8mb4 COLLATE utf8mb4_unicode_ci
@@ -223,13 +231,81 @@ BEGIN
     END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `p_get_all_datatype` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `p_get_all_datatype` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_get_all_datatype`()
+BEGIN
+	select id as d_key, case when unit_name = '' then unit_index else unit_name end as d_name, unit_symbol as d_symbol
+	from unitsymbol
+	order by id;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `p_get_tram_tnmt` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `p_get_tram_tnmt` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_get_tram_tnmt`(
+	p_type varchar(10)
+)
+BEGIN
+	SELECT  a.ID,
+			a.FCODE,
+			a.TENTRAM,
+			a.FADDRESS,
+			a.DIRECTORY,
+			a.FLOCATION_LAT,
+			a.FLOCATION_LNG,
+			a.FDESCRIPTION,
+			a.FAREA_ID,
+			a.FTYPE,
+			a.FIDANOTHER,
+			b.area_name
+		FROM tramquantrac a LEFT JOIN areadata b ON a.FAREA_ID = b.id
+		WHERE a.Fstatus = 1 and a.FTYPE = p_type;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `p_insert_result_data` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `p_insert_result_data` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_insert_result_data`(
+	p_id varchar(20),
+	p_fkey varchar(50),
+	p_name varchar(250),
+	p_index varchar(250),
+	p_result varchar(250),
+	p_unit varchar(250),
+	p_datetime varchar(250)
+)
+BEGIN
+	DECLARE v_kq INT(100);
+	
+	insert into dataquantrac(IDTRAM,FKEY,FNAME,FINDEX,FRESULT,FUNIT,FDATETIME,CREATED)
+	values(p_id, p_fkey, p_name, p_index, p_result, p_unit, p_datetime, DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s'));
+	
+	SELECT ROW_COUNT() INTO v_kq;
+	SELECT CASE WHEN v_kq > 0 THEN 'SUCCESS' ELSE 'FAIL' END AS STATUS, f_lichsuchuongtrinh(p_fkey,CONCAT('Insert Data: ',p_index,', result: ',p_result,' ',p_unit,', time: ',p_datetime),1) AS LOGINSERT;
+	COMMIT;
+    END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `p_get_all_data` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `p_get_all_data` */;
 
 DELIMITER $$
 
-/*!50003 CREATE PROCEDURE `p_get_all_data`()
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_get_all_data`()
 BEGIN
 	select data_quantrac.idtram, data_quantrac.tentram, 
 		sum(pH) as pH,
@@ -300,27 +376,13 @@ BEGIN
     END */$$
 DELIMITER ;
 
-/* Procedure structure for procedure `p_get_all_datatype` */
-
-/*!50003 DROP PROCEDURE IF EXISTS  `p_get_all_datatype` */;
-
-DELIMITER $$
-
-/*!50003 CREATE PROCEDURE `p_get_all_datatype`()
-BEGIN
-	select id as d_key, case when unit_name = '' then unit_index else unit_name end as d_name, unit_symbol as d_symbol
-	from unitsymbol
-	order by id;
-    END */$$
-DELIMITER ;
-
 /* Procedure structure for procedure `p_get_detail_id` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `p_get_detail_id` */;
 
 DELIMITER $$
 
-/*!50003 CREATE PROCEDURE `p_get_detail_id`(
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_get_detail_id`(
 	p_id varchar(50)
 )
 BEGIN
@@ -367,7 +429,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE PROCEDURE `p_get_tramquantrac`(
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_get_tramquantrac`(
 	p_idtram varchar(50)
 )
 BEGIN
@@ -405,40 +467,13 @@ BEGIN
     END */$$
 DELIMITER ;
 
-/* Procedure structure for procedure `p_get_tram_tnmt` */
-
-/*!50003 DROP PROCEDURE IF EXISTS  `p_get_tram_tnmt` */;
-
-DELIMITER $$
-
-/*!50003 CREATE PROCEDURE `p_get_tram_tnmt`(
-	p_type varchar(10)
-)
-BEGIN
-	SELECT  a.ID,
-			a.FCODE,
-			a.TENTRAM,
-			a.FADDRESS,
-			a.DIRECTORY,
-			a.FLOCATION_LAT,
-			a.FLOCATION_LNG,
-			a.FDESCRIPTION,
-			a.FAREA_ID,
-			a.FTYPE,
-			a.FIDANOTHER,
-			b.area_name
-		FROM tramquantrac a LEFT JOIN areadata b ON a.FAREA_ID = b.id
-		WHERE a.Fstatus = 1 and a.FTYPE = p_type;
-    END */$$
-DELIMITER ;
-
 /* Procedure structure for procedure `p_insert_data_thuyloi` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `p_insert_data_thuyloi` */;
 
 DELIMITER $$
 
-/*!50003 CREATE PROCEDURE `p_insert_data_thuyloi`(
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_insert_data_thuyloi`(
 	p_idtram VARCHAR(20),
 	p_fkey VARCHAR(50),
 	p_name VARCHAR(250),
@@ -483,58 +518,40 @@ BEGIN
     END */$$
 DELIMITER ;
 
-/* Procedure structure for procedure `p_insert_result_data` */
-
-/*!50003 DROP PROCEDURE IF EXISTS  `p_insert_result_data` */;
-
-DELIMITER $$
-
-/*!50003 CREATE PROCEDURE `p_insert_result_data`(
-	p_id varchar(20),
-	p_fkey varchar(50),
-	p_name varchar(250),
-	p_index varchar(250),
-	p_result varchar(250),
-	p_unit varchar(250),
-	p_datetime varchar(250)
-)
-BEGIN
-	DECLARE v_kq INT(100);
-	
-	insert into dataquantrac(IDTRAM,FKEY,FNAME,FINDEX,FRESULT,FUNIT,FDATETIME,CREATED)
-	values(p_id, p_fkey, p_name, p_index, p_result, p_unit, p_datetime, DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s'));
-	
-	SELECT ROW_COUNT() INTO v_kq;
-	SELECT CASE WHEN v_kq > 0 THEN 'SUCCESS' ELSE 'FAIL' END AS STATUS, f_lichsuchuongtrinh(p_fkey,CONCAT('Insert Data: ',p_index,', result: ',p_result,' ',p_unit,', time: ',p_datetime),1) AS LOGINSERT;
-	COMMIT;
-    END */$$
-DELIMITER ;
-
 /* Procedure structure for procedure `p_login` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `p_login` */;
 
 DELIMITER $$
 
-/*!50003 CREATE PROCEDURE `p_login`(
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_login`(
 	p_username VARCHAR(250),
 	p_password VARCHAR(250)
 )
 BEGIN
-	DECLARE v_checkuser VARCHAR(250);
+	DECLARE v_checkusername VARCHAR(250);
+	DECLARE v_checkuserpass VARCHAR(250);
 	
-	SELECT COUNT(*) INTO v_checkuser
-	FROM user WHERE username = p_username AND PASSWORD = p_password;
+	SELECT COUNT(*) INTO v_checkusername
+	FROM user WHERE username = p_username; -- AND PASSWORD = p_password;
 	
-	IF v_checkuser > 0 THEN
-		SELECT u.id, u.username, u.fstatus as STATUS
-		FROM USER u
-		WHERE u.username = p_username AND u.password = p_password and u.fstatus = 1
-		limit 1;
-	ELSE
-		SELECT '-1' as id, '-1' AS username, '-1' AS STATUS
+	if v_checkusername > 0 then
+		SELECT COUNT(*) INTO v_checkuserpass
+		FROM USER WHERE username = p_username AND PASSWORD = p_password;
+		
+		if v_checkuserpass > 0 then
+			SELECT u.id, u.username, u.fname, DATE_FORMAT(u.fbirthday,'%d/%m/%Y') AS fbirthday, u.fGender, u.faddress, u.femail, u.fadmin, u.fstatus AS STATUS
+			FROM USER u
+			WHERE u.username = p_username AND u.password = p_password AND u.fstatus = 1
+			LIMIT 1;
+		else
+			SELECT '-1' AS id, ' ' AS username, ' ' AS fname, ' ' AS fbirthday, ' ' AS fGender, ' ' AS faddress, ' ' AS femail, ' ' AS fadmin, '-2' AS STATUS
+			FROM DUAL;
+		end if;
+	else
+		SELECT '-1' AS id, ' ' AS username, ' ' AS fname, ' ' AS fbirthday, ' ' AS fGender, ' ' AS faddress, ' ' AS femail, ' ' AS fadmin, '-1' AS STATUS
 		FROM DUAL;
-	END IF;
+	end if;
     END */$$
 DELIMITER ;
 
