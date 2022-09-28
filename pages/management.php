@@ -7,21 +7,24 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>Service Quan Trắc - VNPT STG</title>
-    <link rel="icon" href="lib/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="lib/images/icons/logo.ico" type="image/x-icon">
     <link href="lib/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
     <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="lib/assets/css/animate.css" rel="stylesheet" type="text/css"/>
     <link href="lib/assets/css/icons.css" rel="stylesheet" type="text/css"/>
     <link href="lib/assets/css/sidebar-menu.css" rel="stylesheet"/>
     <link href="lib/assets/css/app-style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/sweetalert2.min.css">
+    <link href="lib/assets/css/pace.min.css" rel="stylesheet"/>
+    <script src="lib/assets/js/pace.min.js"></script>
   </head>
   <body class="bg-theme bg-theme3">
     <div id="wrapper">
       <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
         <div class="brand-logo">
           <a href="go?page=_index_manage">
-            <img src="lib/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-            <h5 class="logo-text">VNPT Admin</h5>
+            <img src="lib/images/logo_vnpt_white.png" class="logo-icon" alt="logo icon">
+            <h5 class="logo-text">SV Quan Trắc</h5>
           </a>
         </div>
         <ul class="sidebar-menu do-nicescrol">
@@ -55,17 +58,11 @@
               <i class="icon-menu menu-icon"></i>
             </a>
             </li>
-            <li class="nav-item">
-              <form class="search-bar">
-                <input type="text" class="form-control" placeholder="Typing...">
-                <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-              </form>
-            </li>
           </ul>
-            
           <ul class="navbar-nav align-items-center right-nav-link">
             <li class="nav-item">
               <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+                <?php echo $_SESSION["taikhoan"]; ?>
                 <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
               </a>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -74,18 +71,20 @@
                   <div class="media">
                     <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
                     <div class="media-body">
-                    <h6 class="mt-2 user-title">Accout User</h6>
-                    <p class="user-subtitle">accout@vnpt.vn</p>
+                    <h6 class="mt-2 user-title"><?php echo $_SESSION["tennhanvien"]; ?></h6>
+                    <p class="user-subtitle"><?php echo $_SESSION["email"]; ?></p>
                     </div>
                   </div>
                   </a>
                 </li>
                 <li class="dropdown-divider"></li>
-                <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+                <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Thông tin tài khoản</li>
                 <li class="dropdown-divider"></li>
-                <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+                <li class="dropdown-item"><i class="icon-settings mr-2"></i> Đổi mật khẩu</li>
                 <li class="dropdown-divider"></li>
-                <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+                <li class="dropdown-item"><i class="icon-power mr-2"></i> 
+                  <a href="javascript:void(0);" onclick="xacnhandangxuat();">Log out</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -126,5 +125,29 @@
     <script src="lib/assets/plugins/simplebar/js/simplebar.js"></script>
     <script src="lib/assets/js/sidebar-menu.js"></script>
     <script src="lib/assets/js/app-script.js"></script>
+    <script src="lib/js/sweetalert2.min.js"></script>
+    <script type="text/javascript">
+      function xacnhandangxuat(){
+        Swal.fire({
+          title: 'Đăng xuất',
+          text: "Xác nhận đăng xuất?",
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Đồng ý',
+          cancelButtonText: 'Quay lại'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.post("go", {for:"_logout"}, function(data) {
+              if(data){
+                //lichsuchuongtrinh('Đăng xuất','Thoát khỏi hệ thống');
+                location.reload();
+              }
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

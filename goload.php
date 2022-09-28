@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include_once('controllers/TaikhoanController.php');
+
     if(isset($_GET['check'])) {
         ob_start();
         switch ($_GET['check']) {
@@ -17,7 +19,17 @@
     if(isset($_POST['for'])) {
         switch ($_POST['for']) {
             case "login":
-                
+                if(isset($_POST['taikhoan']) && isset($_POST['matkhau']) ){
+                    $md5pass = md5($_POST['matkhau']);
+                    $pass = md5(substr($md5pass,0,strlen($md5pass)/2));
+                    $res = (new TaikhoanController())->FLogin_web($_POST['taikhoan'], $pass);
+                    echo json_encode($res);
+                } else {
+                    echo json_encode(array("STATUS" => "ERROR", "MESSAGE" => "ACCESS DENIED"));
+                }
+                break;
+            case "_logout":
+                echo (new TaikhoanController())->FLogout_web();
                 break;
             default:
                 echo "Chức năng không tồn tại";
@@ -25,14 +37,13 @@
     }
 
     if(isset($_GET['page'])) {
-        /*
         if(!isset($_SESSION["sansang"])){
                 header("Location: go?check=_home");
         } else {
             if($_SESSION["sansang"] != "1"){
                 header("Location: go?check=_home");
             }
-        }*/
+        }
 
         ob_start();
 
