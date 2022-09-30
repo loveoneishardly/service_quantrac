@@ -191,6 +191,6 @@
   <span><span class="screen-reader-text">0</span></span>
   <span>4</span>
 </section>
-<h2><a href="go?page=_main" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-home',size:'large'">TRANG CHỦ</a></h2>
+<h2><a href="go?page=_index_manage" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-home',size:'large'">TRANG CHỦ</a></h2>
 </body>
 </html>
