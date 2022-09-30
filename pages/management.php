@@ -4,10 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
     <title>Service Quan Trắc - VNPT STG</title>
     <link rel="icon" href="lib/images/icons/logo.ico" type="image/x-icon">
+    <script src="lib/assets/js/jquery.min.js"></script>
     <link href="lib/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
     <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="lib/assets/css/animate.css" rel="stylesheet" type="text/css"/>
@@ -17,6 +16,51 @@
     <link rel="stylesheet" type="text/css" href="lib/css/sweetalert2.min.css">
     <link href="lib/assets/css/pace.min.css" rel="stylesheet"/>
     <script src="lib/assets/js/pace.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="lib/css/jBox.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/css/all.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/css/brands.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/css/solid.css">
+    <script type="text/javascript" src="lib/js/jBox.js"></script>
+
+
+    <link rel="stylesheet" href="lib/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="lib/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxdata.js"></script> 
+    <script type="text/javascript" src="lib/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxradiobutton.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.selection.js"></script> 
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.grouping.js"></script> 
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.columnsresize.js"></script> 
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.filter.js"></script> 
+    <script type="text/javascript" src="lib/jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxtabs.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxcombobox.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.aggregates.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxloader.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxfileupload.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxnotification.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxtree.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxexpander.js"></script>
+    <script type="text/javascript" src="lib/jqwidgets/jqxsplitter.js"></script>
   </head>
   <body class="bg-theme bg-theme3">
     <div id="wrapper">
@@ -83,7 +127,7 @@
                 <li class="dropdown-item"><i class="icon-settings mr-2"></i> Đổi mật khẩu</li>
                 <li class="dropdown-divider"></li>
                 <li class="dropdown-item"><i class="icon-power mr-2"></i> 
-                  <a href="javascript:void(0);" onclick="xacnhandangxuat();">Log out</a>
+                  <a href="javascript:void(0);" onclick="xacnhandangxuat();">Thoát</a>
                 </li>
               </ul>
             </li>
@@ -93,20 +137,26 @@
       <div class="clearfix"></div>
         <div class="content-wrapper">
           <div class="container-fluid">
-            <div class="overlay toggle-menu">
-              <?php
-                $p = $_GET['page'];
-                $s = '';
-                if (isset($_GET['subP'])) {
-                  $s = $_GET['subP'];
-                } else {
-                  $s = '';
-                }
-                $page = "pages/".$s.".php";
-                if (file_exists($page)) {
-                  include($page);
-                }
-              ?>
+            <div class="row mt-3">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body">
+                  <?php
+                    $p = $_GET['page'];
+                    $s = '';
+                    if (isset($_GET['subP'])) {
+                      $s = $_GET['subP'];
+                    } else {
+                      $s = '';
+                    }
+                    $page = "pages/".$s.".php";
+                    if (file_exists($page)) {
+                      include($page);
+                    }
+                  ?>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -114,12 +164,11 @@
         <footer class="footer">
           <div class="container">
             <div class="text-center">
-              Copyright © 2022 TTCNTT VNPT SOC TRANG
+              Copyright © 2022 TTCNTT VNPT SÓC TRĂNG
             </div>
           </div>
         </footer>
       </div>
-    <script src="lib/assets/js/jquery.min.js"></script>
     <script src="lib/assets/js/popper.min.js"></script>
     <script src="lib/assets/js/bootstrap.min.js"></script>
     <script src="lib/assets/plugins/simplebar/js/simplebar.js"></script>

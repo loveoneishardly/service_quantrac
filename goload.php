@@ -1,16 +1,17 @@
 <?php
     session_start();
     include_once('controllers/TaikhoanController.php');
+    include_once('controllers/AppController.php');
 
     if(isset($_GET['check'])) {
         ob_start();
         switch ($_GET['check']) {
             case "_home":
                 include("pages/index.php");
-                break;
+            break;
             case "_login":
                 include("pages/login.php");
-                break;
+            break;
         }
         echo ob_get_clean();
     }
@@ -27,12 +28,32 @@
                 } else {
                     echo json_encode(array("STATUS" => "ERROR", "MESSAGE" => "ACCESS DENIED"));
                 }
-                break;
+            break;
             case "_logout":
                 echo (new TaikhoanController())->FLogout_web();
-                break;
+            break;
+            case "loadHistory":
+                $res = (new AppController())->LoadHistory();
+                echo json_encode($res);
+            break;
             default:
                 echo "Chức năng không tồn tại";
+        }
+    }
+
+    if(isset($_GET['for'])) {
+        switch ($_GET['for']) {
+            case "loadHistory":
+                $res = (new AppController())->LoadHistory();
+                echo json_encode($res);
+            break;
+            case "loadUser":
+                $res = (new AppController())->LoadUser();
+                echo json_encode($res);
+            break;
+            default:
+                echo "Chức năng không tồn tại";
+            break;
         }
     }
 
@@ -50,9 +71,10 @@
         switch ($_GET['page']) {
             case "_index_manage":
                 include("pages/management.php");
-                break;
+            break;
             default:
-                include("php/pages/ferror.php");
+                include("pages/ferror.php");
+            break;
         }
         echo ob_get_clean();
     }

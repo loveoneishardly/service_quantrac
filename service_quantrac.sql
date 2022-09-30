@@ -74,9 +74,6 @@ CREATE TABLE `datathuyloi` (
 
 /*Data for the table `datathuyloi` */
 
-insert  into `datathuyloi`(`ID`,`IDTRAM`,`FKEY`,`FDATETIME`,`FUNIT`,`Salinity`,`Temperature`,`Level`,`pH`,`CREATED`) values 
-(1,1,'999','2022-09-26 09:52:53',NULL,'9','9','9','9','2022-09-27 02:31:21');
-
 /*Table structure for table `logdata` */
 
 DROP TABLE IF EXISTS `logdata`;
@@ -88,9 +85,13 @@ CREATE TABLE `logdata` (
   `FTYPE` int(11) DEFAULT NULL COMMENT '1: TNMT, 2: Thủy lợi',
   `FCREATED` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1312 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1314 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `logdata` */
+
+insert  into `logdata`(`ID`,`FKEY`,`FACTION`,`FTYPE`,`FCREATED`) values 
+(1312,'654616468','nhập',1,'2022-09-30 15:16:51'),
+(1313,'984165646','nhập',1,'2022-09-30 15:23:53');
 
 /*Table structure for table `tramquantrac` */
 
@@ -296,6 +297,41 @@ BEGIN
 	SELECT ROW_COUNT() INTO v_kq;
 	SELECT CASE WHEN v_kq > 0 THEN 'SUCCESS' ELSE 'FAIL' END AS STATUS, f_lichsuchuongtrinh(p_fkey,CONCAT('Insert Data: ',p_index,', result: ',p_result,' ',p_unit,', time: ',p_datetime),1) AS LOGINSERT;
 	COMMIT;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `p_load_loginsert` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `p_load_loginsert` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_load_loginsert`()
+BEGIN
+	select ID,FKEY,FACTION,case when FTYPE = 1 then 'Tài nguyên môi trường' else 'Thủy lợi' end as FTYPE,FCREATED
+	from logdata;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `p_load_user` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `p_load_user` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_load_user`()
+BEGIN
+	select 	id,
+		username,
+		fname,
+		date_format(fbirthday,'%d-%m-%Y') as fbirthday,
+		case when fGender = 1 then 'Nam' else 'Nữ' end as fGender,
+		faddress,
+		femail,
+		fmenu,
+		fadmin,
+		CASE WHEN fstatus = 1 then 'Hoạt động' else 'Đã khóa' end as fstatus
+	from user;
     END */$$
 DELIMITER ;
 
