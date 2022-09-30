@@ -68,7 +68,7 @@
         <div class="brand-logo">
           <a href="go?page=_index_manage">
             <img src="lib/images/logo_vnpt_white.png" class="logo-icon" alt="logo icon">
-            <h5 class="logo-text">SV Quan Trắc</h5>
+            <h5 class="logo-text">Quan Trắc</h5>
           </a>
         </div>
         <ul class="sidebar-menu do-nicescrol">
