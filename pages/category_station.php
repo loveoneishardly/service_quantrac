@@ -10,16 +10,18 @@
             source_liststation = {
                 datatype: "json",
                 datafields: [
-                    { name: 'id'},
-                    { name: 'username'},
-                    { name: 'fname'},
-                    { name: 'fbirthday'},
-                    { name: 'fGender'},
-                    { name: 'faddress'},
-                    { name: 'femail'},
-                    { name: 'fmenu'},
-                    { name: 'fadmin'},
-                    { name: 'fstatus'}
+                    { name: 'ID'},
+                    { name: 'FCODE'},
+                    { name: 'TENTRAM'},
+                    { name: 'FADDRESS'},
+                    { name: 'DIRECTORY'},
+                    { name: 'FLOCATION_LAT'},
+                    { name: 'FLOCATION_LNG'},
+                    { name: 'FDESCRIPTION'},
+                    { name: 'FAREA_ID'},
+                    { name: 'FTYPE'},
+                    { name: 'FIDANOTHER'},
+                    { name: 'FSTATUS'}
                 ],
                 url: 'go?for=loadStation',
                 cache: false
@@ -39,16 +41,18 @@
                 statusbarheight: 20,
                 showaggregates: true,
                 columns: [
-                    { text: 'Mã tài khoản', datafield: 'id', width: 150, align: 'center', cellsalign: 'center'},
-                    { text: 'Tên đăng nhập', datafield: 'username', width: 150, align: 'center'},
-                    { text: 'Tên', datafield: 'fname', width: 200, align: 'center'},
-                    { text: 'Ngày sinh', datafield: 'fbirthday', width: 120, align: 'center', cellsalign: 'center'},
-                    { text: 'Giới tính', datafield: 'fGender', width: 100, align: 'center', cellsalign: 'center'},
-                    { text: 'Địa chỉ', datafield: 'faddress', width: 300, align: 'center'},
-                    { text: 'Email', datafield: 'femail', width: 300, align: 'center'},
-                    { text: 'Menu', datafield: 'fmenu', width: 100, align: 'center', cellsalign: 'center'},
-                    { text: 'Admin', datafield: 'fadmin', width: 100, align: 'center', cellsalign: 'center'},
-                    { text: 'Trạng thái', datafield: 'fstatus', width: 150, align: 'center', cellsalign: 'center'}
+                    { text: 'ID', datafield: 'ID', width: 60, align: 'center', cellsalign: 'center'},
+                    { text: 'FCODE', datafield: 'FCODE', width: 120, align: 'center', cellsalign: 'center'},
+                    { text: 'TENTRAM', datafield: 'TENTRAM', width: 300, align: 'center'},
+                    { text: 'FADDRESS', datafield: 'FADDRESS', width: 300, align: 'center'},
+                    { text: 'DIRECTORY', datafield: 'DIRECTORY', width: 200, align: 'center'},
+                    { text: 'FLOCATION_LAT', datafield: 'FLOCATION_LAT', width: 150, align: 'center', cellsalign: 'center'},
+                    { text: 'FLOCATION_LNG', datafield: 'FLOCATION_LNG', width: 150, align: 'center', cellsalign: 'center'},
+                    { text: 'FDESCRIPTION', datafield: 'FDESCRIPTION', width: 120, align: 'center', cellsalign: 'center'},
+                    { text: 'FAREA_ID', datafield: 'FAREA_ID', width: 100, align: 'center', cellsalign: 'center'},
+                    { text: 'FTYPE', datafield: 'FTYPE', width: 100, align: 'center', cellsalign: 'center'},
+                    { text: 'FIDANOTHER', datafield: 'FIDANOTHER', width: 120, align: 'center', cellsalign: 'center'},
+                    { text: 'FSTATUS', datafield: 'FSTATUS', width: 100, align: 'center', cellsalign: 'center'}
                 ]
             });
 

@@ -21,7 +21,7 @@
 		$("#listlog").jqxGrid({
             source: dataAdapter,
             width: '100%',
-            height: '505',
+            height: '550',
             source: dataAdapter,
             columnsresize: true,
             showfilterrow: true,

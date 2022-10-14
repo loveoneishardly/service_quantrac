@@ -51,6 +51,10 @@
                 $res = (new AppController())->LoadUser();
                 echo json_encode($res);
             break;
+            case "loadStation":
+                $res = (new AppController())->LoadStation();
+                echo json_encode($res);
+            break;
             default:
                 echo "Chức năng không tồn tại";
             break;

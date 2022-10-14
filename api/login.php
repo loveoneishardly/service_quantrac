@@ -2,6 +2,7 @@
 	require_once('../controllers/Function_API.php');
 
 	header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Max-Age: 3600");
 	header("Access-Control-Allow-Methods: POST");
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
