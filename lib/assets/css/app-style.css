@@ -758,7 +758,7 @@ body.bg-theme15 {
 
 /*Cards */
 .card{
-   margin-bottom: 25px; 
+   margin-bottom: 0px; 
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    border: none;
    background-color: rgba(0,0,0,.2);
@@ -2998,7 +2998,7 @@ table.grid td {
 [class*="icheck-material"] {
   min-height: 22px;
   margin-top: 6px;
-  margin-bottom: 6px 
+  margin-bottom: 6px; 
   padding-left: 0px; }
   [class*="icheck-material"] > label {
     padding-left: 29px !important;

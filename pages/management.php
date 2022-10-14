@@ -16,14 +16,12 @@
     <link rel="stylesheet" type="text/css" href="lib/css/sweetalert2.min.css">
     <link href="lib/assets/css/pace.min.css" rel="stylesheet"/>
     <script src="lib/assets/js/pace.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="lib/css/jBox.css">
     <link rel="stylesheet" type="text/css" href="lib/css/css/all.css">
     <link rel="stylesheet" type="text/css" href="lib/css/css/fontawesome.css">
     <link rel="stylesheet" type="text/css" href="lib/css/css/brands.css">
     <link rel="stylesheet" type="text/css" href="lib/css/css/solid.css">
     <script type="text/javascript" src="lib/js/jBox.js"></script>
-
 
     <link rel="stylesheet" href="lib/jqwidgets/styles/jqx.base.css" type="text/css" />
     <script type="text/javascript" src="lib/js/jquery-1.11.1.min.js"></script>
@@ -62,6 +60,11 @@
     <script type="text/javascript" src="lib/jqwidgets/jqxexpander.js"></script>
     <script type="text/javascript" src="lib/jqwidgets/jqxsplitter.js"></script>
   </head>
+  <style type="text/css">
+    .jqx-fill-state-normal {
+      width: 130px !important;
+    }
+</style>
   <body class="bg-theme bg-theme3">
     <div id="wrapper">
       <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
