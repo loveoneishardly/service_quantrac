@@ -15,7 +15,10 @@
 				{ name: 'FCREATED'}
 			],
 			url: 'go?for=loadHistory',
-			cache: false
+			cache: false,
+            pagesize: 30,
+            pager: function (pagenum, pagesize, oldpagenum) {
+            }
 		};
         var dataAdapter = new $.jqx.dataAdapter(source_logdata);
 		$("#listlog").jqxGrid({
@@ -26,13 +29,16 @@
             columnsresize: true,
             showfilterrow: true,
             filterable: true,
-            editable: true,
+            editable: false,
+            sortable: true,
             selectionmode: 'singlerow',
             showstatusbar: true,
             statusbarheight: 20,
             showaggregates: true,
+            pageable: true,
+            pagermode: 'simple',
             columns: [
-                { text: 'Mã giao dịch', datafield: 'FKEY', width: 280, align: 'center', cellsalign: 'center'},
+                { text: 'Mã giao dịch', datafield: 'FKEY', width: 250, align: 'center', cellsalign: 'center'},
                 { text: 'Thao tác', datafield: 'FACTION', width: 500, align: 'center'},
                 { text: 'Loại', datafield: 'FTYPE', width: 200, align: 'center'},
                 { text: 'Thời gian', datafield: 'FCREATED', width: 300, align: 'center', cellsalign: 'center'}

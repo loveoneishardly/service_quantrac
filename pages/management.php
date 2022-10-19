@@ -61,10 +61,10 @@
     <script type="text/javascript" src="lib/jqwidgets/jqxsplitter.js"></script>
   </head>
   <style type="text/css">
-    .jqx-fill-state-normal {
+    .jqx-rc-all > .jqx-fill-state-normal {
       width: 130px !important;
     }
-</style>
+  </style>
   <body class="bg-theme bg-theme3">
     <div id="wrapper">
       <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">

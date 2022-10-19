@@ -24,7 +24,10 @@
                     { name: 'FSTATUS'}
                 ],
                 url: 'go?for=loadStation',
-                cache: false
+                cache: false,
+                pagesize: 30,
+                pager: function (pagenum, pagesize, oldpagenum) {
+                }
             };
             var dataAdapter = new $.jqx.dataAdapter(source_liststation);
             $("#liststation").jqxGrid({
@@ -40,6 +43,8 @@
                 showstatusbar: true,
                 statusbarheight: 20,
                 showaggregates: true,
+                pageable: true,
+                pagermode: 'simple',
                 columns: [
                     { text: 'ID', datafield: 'ID', width: 60, align: 'center', cellsalign: 'center'},
                     { text: 'FCODE', datafield: 'FCODE', width: 120, align: 'center', cellsalign: 'center'},

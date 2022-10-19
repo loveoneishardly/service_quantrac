@@ -21,7 +21,10 @@
                 { name: 'fstatus'}
 			],
 			url: 'go?for=loadUser',
-			cache: false
+			cache: false,
+            pagesize: 30,
+            pager: function (pagenum, pagesize, oldpagenum) {
+            }
 		};
         var dataAdapter = new $.jqx.dataAdapter(source_listuser);
 		$("#listuser").jqxGrid({
@@ -37,6 +40,8 @@
             showstatusbar: true,
             statusbarheight: 20,
             showaggregates: true,
+            pageable: true,
+            pagermode: 'simple',
             columns: [
                 { text: 'Mã tài khoản', datafield: 'id', width: 150, align: 'center', cellsalign: 'center'},
                 { text: 'Tên đăng nhập', datafield: 'username', width: 150, align: 'center'},
