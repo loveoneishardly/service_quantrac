@@ -1656,7 +1656,7 @@ body.bg-theme15 {
 label {
     color: rgba(255, 255, 255, 0.75);
     font-size: .75rem;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     letter-spacing: 1px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -3649,8 +3649,109 @@ table.grid td {
 
 }
 
+#copyright {
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 25px;
+    text-align: center;
+}
 
+.text-copyright {
+    font-size: 11px;
+}
+  
+.group { 
+    position:relative; 
+    margin-bottom:0px; 
+    padding-top: 5px;
+}
 
+.group input{
+    font-size:18px;
+    padding:5px 10px 0px 5px;
+    display:block;
+    width:550px;
+    border:none;
+    border-bottom:1px solid #0E4F3D;
+}
 
+.group input:focus{
+    outline:none;
+}
 
+.group label{
+    color: #0E4F3D; 
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+}
 
+.group input:focus ~ label, .group input:valid ~ label {
+    top:-8px;
+    font-size:14px;
+    color: #0E4F3D;
+    font-weight: bold;
+}
+
+.bar {
+    position:relative; 
+    display:block; 
+    width:550px;
+}
+
+.bar:before, .bar:after 	{
+    content:'';
+    height:3px; 
+    width:0;
+    bottom:0px; 
+    position:absolute;
+    background:#0E4F3D; 
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+}
+
+.bar:before {
+    left:50%;
+}
+
+.bar:after {
+    right:50%; 
+}
+
+.group input:focus ~ .bar:before, .group input:focus ~ .bar:after {
+    width:50%;
+}
+
+.group input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+}
+    @-webkit-keyframes inputHighlighter {
+        from { background: #0061af; }
+        to 	{ width:0; background:transparent; }
+    }
+    @-moz-keyframes inputHighlighter {
+        from { background: #0061af; }
+        to 	{ width:0; background:transparent; }
+    }
+    @keyframes inputHighlighter {
+        from { background: #0061af; }
+        to 	{ width:0; background:transparent; }
+    }
+    
+.qt_button{
+    font-weight: bold;
+    border: 0.5px solid black !important;
+}
+.qt_button:hover{
+    background-color: #d6d2d2;
+}

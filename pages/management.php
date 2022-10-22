@@ -17,11 +17,15 @@
     <link href="lib/assets/css/pace.min.css" rel="stylesheet"/>
     <script src="lib/assets/js/pace.min.js"></script>
     <link rel="stylesheet" type="text/css" href="lib/css/jBox.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/jBox.all.css">
+
     <link rel="stylesheet" type="text/css" href="lib/css/css/all.css">
     <link rel="stylesheet" type="text/css" href="lib/css/css/fontawesome.css">
     <link rel="stylesheet" type="text/css" href="lib/css/css/brands.css">
     <link rel="stylesheet" type="text/css" href="lib/css/css/solid.css">
+
     <script type="text/javascript" src="lib/js/jBox.js"></script>
+    <script type="text/javascript" src="lib/js/jBox.all.js"></script>
 
     <link rel="stylesheet" href="lib/jqwidgets/styles/jqx.base.css" type="text/css" />
     <script type="text/javascript" src="lib/js/jquery-1.11.1.min.js"></script>
@@ -64,6 +68,7 @@
     .jqx-rc-all > .jqx-fill-state-normal {
       width: 130px !important;
     }
+    
   </style>
   <body class="bg-theme bg-theme3">
     <div id="wrapper">
@@ -96,6 +101,12 @@
             </a>
           </li>
         </ul>
+        <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <div id="copyright">
+          <div class="text-copyright">
+            Trung Tâm CNTT - VNPT SÓC TRĂNG
+          </div>
+        </div>
       </div>
       <header class="topbar-nav">
         <nav class="navbar navbar-expand fixed-top">
@@ -165,13 +176,6 @@
         </div>
         <div class="overlay toggle-menu"></div>
         <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
-        <footer class="footer">
-          <div class="container">
-            <div class="text-center">
-              Copyright © 2022 TTCNTT VNPT SÓC TRĂNG
-            </div>
-          </div>
-        </footer>
       </div>
     <script src="lib/assets/js/popper.min.js"></script>
     <script src="lib/assets/js/bootstrap.min.js"></script>

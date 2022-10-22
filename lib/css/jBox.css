@@ -33,7 +33,7 @@
 .jBox-Tooltip .jBox-container,
 .jBox-Mouse .jBox-container {
 	border-radius: 3px;
-	//box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+	/*box-shadow: 0 0 5px rgba(0, 0, 0, .3);*/
 }
 
 .jBox-Tooltip .jBox-title,
@@ -84,25 +84,25 @@
 .jBox-pointer-top:after {
 	left: 5px;
 	top: 6px;
-	//box-shadow: -1px -1px 4px rgba(0, 0, 0, .2);
+	/*box-shadow: -1px -1px 4px rgba(0, 0, 0, .2);*/
 }
 
 .jBox-pointer-right:after {
 	top: 5px;
 	right: 6px;
-	//box-shadow: 1px -1px 4px rgba(0, 0, 0, .2);
+	/*box-shadow: 1px -1px 4px rgba(0, 0, 0, .2);*/
 }
 
 .jBox-pointer-bottom:after {
 	left: 5px;
 	bottom: 6px;
-	//box-shadow: 1px 1px 4px rgba(0, 0, 0, .2);
+	/*box-shadow: 1px 1px 4px rgba(0, 0, 0, .2);*/
 }
 
 .jBox-pointer-left:after {
 	top: 5px;
 	left: 6px;
-	//box-shadow: -1px 1px 4px rgba(0, 0, 0, .2);
+	/*box-shadow: -1px 1px 4px rgba(0, 0, 0, .2);*/
 }
 
 /* jBox Modal & jBox Confirm */
@@ -110,7 +110,7 @@
 .jBox-Modal .jBox-container,
 .jBox-Confirm .jBox-container {
 	border-radius: 3px;
-	//box-shadow: 0 3px 15px rgba(0, 0, 0, .4), 0 0 5px rgba(0, 0, 0, .4);
+	/*box-shadow: 0 3px 15px rgba(0, 0, 0, .4), 0 0 5px rgba(0, 0, 0, .4);*/
 }
 
 .jBox-Modal .jBox-title,
@@ -120,6 +120,7 @@
 	background: #f4f5f6;
 	border-bottom: 1px solid #ddd;
 	text-shadow: 0 1px 0 #fff;
+	color: black;
 }
 
 .jBox-Modal.jBox-closeButton-title .jBox-title,
@@ -129,7 +130,7 @@
 
 .jBox-Modal.jBox-closeButton-box:before,
 .jBox-Confirm.jBox-closeButton-box:before {
-	//box-shadow: 0 3px 15px rgba(0, 0, 0, .4), 0 0 5px rgba(0, 0, 0, .4);
+	/*box-shadow: 0 3px 15px rgba(0, 0, 0, .4), 0 0 5px rgba(0, 0, 0, .4);*/
 }
 
 /* jBox Modal */
@@ -189,7 +190,7 @@
 
 .jBox-Confirm-button-cancel:active,
 .jBox-Confirm-button-submit:active {
-	//box-shadow: inset 0 1px 3px rgba(0, 0, 0, .26);
+	/*box-shadow: inset 0 1px 3px rgba(0, 0, 0, .26);*/
 }
 
 /* jBox Notice */
@@ -201,7 +202,7 @@
 
 .jBox-Notice .jBox-container {
 	border-radius: 3px;
-	//box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+	/*box-shadow: 0 0 3px rgba(0, 0, 0, .2);*/
 	color: #fff;
 	text-shadow: 0 -1px 0 #000;
 	background: #333;
@@ -449,7 +450,7 @@
 	width: 24px;
 	height: 24px;
 	border-radius: 50%;
-	//box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+	/*box-shadow: 0 0 5px rgba(0, 0, 0, .3);*/
 }
 
 .jBox-pointerPosition-top.jBox-closeButton-box:before {

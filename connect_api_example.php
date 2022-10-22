@@ -61,23 +61,23 @@
     //echo "HELLO SERVICE QUAN TRAC";
 	
 	
-	$serverName = "localhost\MAYLAB"; 
+	/* $serverName = "localhost\MAYLAB"; 
 	$uid = "sa";   
 	$pwd = "Vnpt@123";  
 	$databaseName = "MANAGEMENT"; 
 
 	$connectionInfo = array( "UID"=>$uid,                            
 							 "PWD"=>$pwd,                            
-							 "Database"=>$databaseName); 
+							 "Database"=>$databaseName); */
 
 	/* Connect using SQL Server Authentication. */  
-	$conn = sqlsrv_connect( $serverName, $connectionInfo);  
+	/*$conn = sqlsrv_connect( $serverName, $connectionInfo);  
 
-	$tsql = "SELECT * from Datalogger";  
+	$tsql = "SELECT * from Datalogger";  */
 
 	/* Execute the query. */  
 
-	$stmt = sqlsrv_query( $conn, $tsql);  
+	/*$stmt = sqlsrv_query( $conn, $tsql);  
 
 	if ( $stmt )  
 	{  
@@ -87,5 +87,18 @@
 	{  
 		 echo "Error in statement execution.\n";  
 		 die( print_r( sqlsrv_errors(), true));  
+	}*/
+    $jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvY3RyYW5nIiwiZXhwIjoxNjY2MDA2MDExfQ.o7_eW_x3sSyNg8vNh1EYGrPCCjQvC6tlOzCXTLe7z60";
+    $tokenParts = explode('.', $jwt);
+    $payload = base64_decode($tokenParts[1]);
+    echo $payload."***";
+    $expiration = json_decode($payload)->exp;
+    echo (($expiration - time()) < 0)."***";
+	$is_token_expired = ($expiration - time()) < 0;
+    echo time()."***";
+    if ($is_token_expired) {
+		echo 'FALSE';
+	} else {
+		echo 'TRUE';
 	}
 ?>
