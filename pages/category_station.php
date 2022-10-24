@@ -155,16 +155,20 @@
                     deleteButton.jqxButton({  width: 47, height: 20 });
                     reloadButton.jqxButton({  width: 80, height: 20 });
                     addButton.click(function (event) {
-                        modal_addTramquantrac.open();
+                        alert("Action: Thêm");
                     });
                     editButton.click(function (event) {
-                        modal_addTramquantrac.open();
+                       /*modal_addTramquantrac.open();*/
+                        alert("Action: Sửa");
                     });
                     deleteButton.click(function (event) {
-                        var selectedrowindex = $("#grid").jqxGrid('getselectedrowindex');
-                        var rowscount = $("#grid").jqxGrid('getdatainformation').rowscount;
-                        var id = $("#grid").jqxGrid('getrowid', selectedrowindex);
-                        $("#grid").jqxGrid('deleterow', id);
+                        /*
+                        var selectedrowindex = $("#liststation").jqxGrid('getselectedrowindex');
+                        var rowscount = $("#liststation").jqxGrid('getdatainformation').rowscount;
+                        var id = $("#liststation").jqxGrid('getrowid', selectedrowindex);
+                        $("#liststation").jqxGrid('deleterow', id);
+                        */
+                        alert("Action: Xóa");
                     });
                     reloadButton.click(function (event) {
                         load_liststation();

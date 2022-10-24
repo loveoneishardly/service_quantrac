@@ -55,6 +55,10 @@
                 $res = (new AppController())->LoadStation();
                 echo json_encode($res);
             break;
+            case "loadlistdatatype":
+                $res = (new AppController())->LoadDataType();
+                echo json_encode($res);
+            break;
             default:
                 echo "Chức năng không tồn tại";
             break;

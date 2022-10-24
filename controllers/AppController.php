@@ -23,5 +23,12 @@
             $stmt -> execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public function LoadDataType(){
+            $pdo = ConnectDb::getInstance()->getConnection();
+            $stmt = $pdo->prepare("call p_load_datatype();");
+            $stmt -> execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 ?>
