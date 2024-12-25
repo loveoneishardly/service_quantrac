@@ -100,6 +100,11 @@
               <i class="zmdi zmdi-view-dashboard"></i> <span>Danh mục nhân viên</span>
             </a>
           </li>
+          <li>
+            <a href="go?page=_index_manage&subP=getjob">
+              <i class="zmdi zmdi-view-dashboard"></i> <span>Get API</span>
+            </a>
+          </li>
         </ul>
         <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
         <div id="copyright">
@@ -163,9 +168,13 @@
                     } else {
                       $s = '';
                     }
-                    $page = "pages/".$s.".php";
-                    if (file_exists($page)) {
-                      include($page);
+                    if ($s) {
+                      $page = "pages/".$s.".php";
+                      if (file_exists($page)) {
+                        include($page);
+                      } else {
+                        include("pages/ferror.php");
+                      }
                     }
                   ?>
                   </div>
